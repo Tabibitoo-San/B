@@ -21,9 +21,9 @@ public class FPendaftaran extends javax.swing.JFrame {
      * Creates new form FPendaftaran
      */
     public static Connection con() throws ClassNotFoundException, SQLException{
-        Class.forName("");
-        String mysqlUrl = "";
-        Connection con = DriverManager.getConnection(mysqlUrl, "", "");
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        String mysqlUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=Ujian_PBO;TrustServerCertificate=true;Encrypt=false;";
+        Connection con = DriverManager.getConnection(mysqlUrl, "Elvin_Ujian_PBO", "1234");
         return con;
     }
     public FPendaftaran() {
@@ -48,14 +48,12 @@ public class FPendaftaran extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TJurusan = new javax.swing.JTextField();
         TEmail = new javax.swing.JTextField();
         TNama = new javax.swing.JTextField();
         TPassword = new javax.swing.JTextField();
         TAlamat = new javax.swing.JTextField();
         TTanggal = new javax.swing.JTextField();
-        RLaki = new javax.swing.JRadioButton();
-        RPerempuan = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -63,6 +61,7 @@ public class FPendaftaran extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TAlamat1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        TJenis_Kelamin = new javax.swing.JTextField();
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,9 +87,9 @@ public class FPendaftaran extends javax.swing.JFrame {
 
         jLabel10.setText("Alamat");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TJurusan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TJurusanActionPerformed(evt);
             }
         });
 
@@ -124,10 +123,6 @@ public class FPendaftaran extends javax.swing.JFrame {
             }
         });
 
-        RLaki.setText("Laki-laki");
-
-        RPerempuan.setText("Perempuan");
-
         jButton1.setText("SELECT");
 
         jButton2.setText("UPDATE");
@@ -154,6 +149,12 @@ public class FPendaftaran extends javax.swing.JFrame {
             }
         });
 
+        TJenis_Kelamin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TJenis_KelaminActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -161,14 +162,12 @@ public class FPendaftaran extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(TJurusan, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TEmail, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TNama, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TPassword, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TAlamat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TTanggal, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(RLaki, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(RPerempuan, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -176,6 +175,7 @@ public class FPendaftaran extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(TAlamat1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(TJenis_Kelamin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -212,7 +212,7 @@ public class FPendaftaran extends javax.swing.JFrame {
                             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(TNama, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,16 +220,13 @@ public class FPendaftaran extends javax.swing.JFrame {
                                 .addComponent(jLabel8))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                    .addComponent(RLaki)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(RPerempuan))
-                                .addComponent(TPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TJenis_Kelamin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(TAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +242,7 @@ public class FPendaftaran extends javax.swing.JFrame {
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jDesktopPane1Layout.createSequentialGroup()
                             .addGap(32, 32, 32)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(TEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(TNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -256,9 +253,8 @@ public class FPendaftaran extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(RLaki)
-                    .addComponent(RPerempuan))
-                .addGap(19, 19, 19)
+                    .addComponent(TJenis_Kelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(TTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -279,17 +275,14 @@ public class FPendaftaran extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,9 +292,9 @@ public class FPendaftaran extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TJurusanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TJurusanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TJurusanActionPerformed
 
     private void TEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEmailActionPerformed
         // TODO add your handling code here:
@@ -332,12 +325,32 @@ public class FPendaftaran extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Connection con;
+        String nama = TNama.getText();
+        String jurusan = TJurusan.getText();
+        String email = TEmail.getText();
+        String password = TPassword.getText();
+        String jenis_kelamin = TJenis_Kelamin.getText();
+        String tanggal_lahir = TTanggal.getText();
+        String alamat = TAlamat.getText();
+        try {
+            con = con();
+            PreparedStatement pst = con.prepareStatement("insert into tbl_insertData values ('"+data2+"','"+data1+"','"+data3+"')");
+            
+            int rst = pst.executeUpdate();
+            System.out.println(rst);
+        } catch (ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void TAlamat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TAlamat1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TAlamat1ActionPerformed
+
+    private void TJenis_KelaminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TJenis_KelaminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TJenis_KelaminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,11 +388,11 @@ public class FPendaftaran extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RLaki;
-    private javax.swing.JRadioButton RPerempuan;
     private javax.swing.JTextField TAlamat;
     private javax.swing.JTextField TAlamat1;
     private javax.swing.JTextField TEmail;
+    private javax.swing.JTextField TJenis_Kelamin;
+    private javax.swing.JTextField TJurusan;
     private javax.swing.JTextField TNama;
     private javax.swing.JTextField TPassword;
     private javax.swing.JTextField TTanggal;
@@ -397,7 +410,6 @@ public class FPendaftaran extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
